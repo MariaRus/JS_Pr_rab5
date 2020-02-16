@@ -6,28 +6,50 @@
 <body>
 	<script>
 		var isValid = true;
-		do 
+		do
 		{
 			var x = prompt('Введите число x: ');
 			var y = prompt('Введите число y: ');
 			isValid = true;
-			if(x == !Number(x)) 
-			{				
-				alert('Число не введено');
+			if(Number(x) && Number(y))
+			{
+				if( y < 0)
+				{
+					alert('Наша программа пока не умеет возводить числа в отрицательную степень :-(');
+					isValid = false;
+					continue;
+				}
+				else
+					break;
+			}
+
+			if( x == "")
+			{
+				alert('Число X не введено');
 				isValid = false;
-			}	
-			else if(y == null || !Number(y)) 
-			{				
-				alert('Число не введено');
+			}
+			else if( y == "")
+			{
+				alert('Число Y не введено');
 				isValid = false;
-			}	
-			else if(y < 0) 
-			{				
-				alert('Наша программа пока не умеет возводить в отрицательную степень:(((');
+			}
+			else if( !Number(x) && x != 0)
+			{
+				alert('Число X не введено');
+				isValid = false;
+			}
+			else if( !Number(y) && y != 0)
+			{
+				alert('Число Y не введено');
+				isValid = false;
+			}
+			else if( y == 0 )
+			{
+				alert('Любое число в степени 0 равно 1');
 				isValid = false;
 			}
 		} while(!isValid)
-		
+
 		var z =+ x;
 		i = 2;
 		do
