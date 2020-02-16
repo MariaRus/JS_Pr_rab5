@@ -5,15 +5,37 @@
 </head>
 <body>
 	<script>
-		var x = prompt('Введите число x: ');
-		var y = prompt('Введите число y: ');
+		var isValid = true;
+		do 
+		{
+			var x = prompt('Введите число x: ');
+			var y = prompt('Введите число y: ');
+			isValid = true;
+			if(x == null || !Number(x)) 
+			{				
+				alert('Число не введено');
+				isValid = false;
+			}	
+			else if(y == null || !Number(y)) 
+			{				
+				alert('Число не введено');
+				isValid = false;
+			}	
+			else if(y < 0) 
+			{				
+				alert('Наша программа пока не умеет возводить в отрицательную степень:(((');
+				isValid = false;
+			}
+		} while(!isValid)
+		
 		var z =+ x;
 		i = 2;
-		while(i <= y)
+		do
 		{
 			z = z * x;
 			i ++;
 		}
+		while (i <= y);
 		alert('Число ' + x + ' в степени ' + y + ' равно ' + z);
 	</script>
 </body>
