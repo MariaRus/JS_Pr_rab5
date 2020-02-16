@@ -11,18 +11,10 @@
 			var x = prompt('Введите число x: ');
 			var y = prompt('Введите число y: ');
 			isValid = true;
+			
 			if(Number(x) && Number(y))
-			{
-				if( y < 0)
-				{
-					alert('Наша программа пока не умеет возводить числа в отрицательную степень :-(');
-					isValid = false;
-					continue;
-				}
-				else
-					break;
-			}
-
+				break;
+			
 			if( x == "")
 			{
 				alert('Число X не введено');
@@ -52,13 +44,8 @@
 
 		var z =+ x;
 		i = 2;
-		do
-		{
-			z = z * x;
-			i ++;
-		}
-		while (i <= y);
-		alert('Число ' + x + ' в степени ' + y + ' равно ' + z);
+		
+		alert('Число ' + x + ' в степени ' + y + ' равно ' + Math.pow(x,y));
 	</script>
 </body>
 </html>
