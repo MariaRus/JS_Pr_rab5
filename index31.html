@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
 <title>Пример 31</title>
 </head>
@@ -8,14 +10,25 @@
 		{
 			var n = prompt('Введите число n: ');
 			isValid = true;
-			if(n == null || !Number(n)) 
+			if(Number(n))
+			{
+				if( n < 0)
+				{
+					alert('Нельзя обработать отрицательное число');
+					isValid = false;
+					continue;
+				}
+				else
+					break;
+			}
+			if( !Number(n) && n != 0) 
 			{				
 				alert('Число не введено');
 				isValid = false;
 			}	
-			else if(n < 0) 
+			else if(n == "") 
 			{				
-				alert('Нельзя обработать отрицательное число');
+				alert('Число не введено');
 				isValid = false;
 			}	
 			else if(n > 64) 
@@ -25,14 +38,15 @@
 			}
 		} while(!isValid)
 		var z = 1;
-
-		var i = 2;
-		do
-		{
-			z = z * i;
-			i ++;
-		}
-		while (i <= +n);
+		if (n > 1){
+			var i = 2;
+			do
+			{
+				z = z * i;
+				i ++;
+			}
+			while (i <= +n);
+			}
 		alert('Факториал числа ' + n + ' равен ' + z);
 		
 	</script>
