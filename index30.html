@@ -45,7 +45,14 @@
 		var z =+ x;
 		i = 2;
 		
-		alert('Число ' + x + ' в степени ' + y + ' равно ' + Math.pow(x,y));
+		var res = Math.pow(x,y);
+		if (isNaN(res)) {
+			alert('Результата в действительных числах нет');
+		} if (res === Number.POSITIVE_INFINITY || res === Number.NEGATIVE_INFINITY) {
+			alert((res > 0 ? 'Положительная' : 'Отрицательная') + ' бесконечность');
+		} else {
+			alert('Число ' + x + ' в степени ' + y + ' равно ' + res);
+		}
 	</script>
 </body>
 </html>
