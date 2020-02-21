@@ -5,6 +5,10 @@
 </head>
 <body>
 	<script>
+		var MAX_X = 1e+15;
+		var MAX_Y = 20;
+		var MAX_Y2 = 1e+15;
+	
 		var isValid = true;
 		do
 		{
@@ -12,11 +16,31 @@
 			var y = prompt('Введите число y: ');
 			isValid = true;
 			
-			if(Number(x) && Number(y))
+			if(Number(x) && Number(y)) {
+				if (x.length > 60 || y.length > 60) {
+					alert('Вы превысили максимально допустимое кол-во символов');
+					isValid = false;
+					continue;
+				}
+				if (Math.abs(x) > MAX_X) {
+					alert('Число (X) должна быть меньше ' + MAX_X + ' по модулю');
+					isValid = false;
+					continue;
+				}
+				if (x % 1 == 0 && Math.abs(y) > MAX_Y) {
+					alert('Степень(Y) должна быть меньше ' + MAX_Y + ' по модулю для данного числа');
+					isValid = false;
+					continue;
+				}
+				if (x % 1 !== 0 && Math.abs(y) > MAX_Y2) {
+					alert('Степень(Y) должна быть меньше ' + MAX_Y2 + ' по модулю');
+					isValid = false;
+					continue;
+				}
 				break;
-			
-			if( x == "")
-			{
+			}
+				
+			if( x == "") {
 				alert('Число X не введено');
 				isValid = false;
 			}
@@ -47,9 +71,9 @@
 		
 		var res = Math.pow(x,y);
 		if (isNaN(res)) {
-			alert('Результата в действительных числах нет');
-		} if (res === Number.POSITIVE_INFINITY || res === Number.NEGATIVE_INFINITY) {
-			alert((res > 0 ? 'Положительная' : 'Отрицательная') + ' бесконечность');
+			alert('Операция невозможна! Результата в действительных числах нет. Вероятная причина: вы попытались возвести отрицательное число в дробную степень.');
+		} else if (res === Number.POSITIVE_INFINITY || res === Number.NEGATIVE_INFINITY) {
+			alert('Операция невозможна! Вероятные причины: 1.)вы попытались возвести 0 в отрицательную дробную степень; 2.)число или степень превышает допустимый диапазон.');
 		} else {
 			alert('Число ' + x + ' в степени ' + y + ' равно ' + res);
 		}
