@@ -18,6 +18,11 @@
 					isValid = false;
 					continue;
 				}
+				else if(n > 170) 
+				{				
+					alert('Нельзя обработать число больше 170. Диапазон возможных значений: 0 ... 170');
+					isValid = false;
+				}
 				else
 					break;
 			}
@@ -31,11 +36,7 @@
 				alert('Число не введено');
 				isValid = false;
 			}	
-			else if(n > 64) 
-			{				
-				alert('Нельзя обработать число больше 64');
-				isValid = false;
-			}
+			
 		} while(!isValid)
 		var z = 1;
 		if (n > 1){
